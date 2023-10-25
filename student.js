@@ -1,5 +1,7 @@
 var students = [];
 
+
+// Klasse für das Object Student
 class Student {
 
     constructor(firstName, lastName, Matrikelnummer) {
@@ -9,29 +11,33 @@ class Student {
     }
 }
 
+
+//Funktion um Student zu erstellen
 function createStudent() {
 
+    //JQuery in Verwendung um Input (ID) aus html zu verwenden
     let firstName = $('#InputFirstname').val();
     let lastName = $('#InputLastname').val();
     let Matrikelnummer = $('#InputNumber').val();
 
     var newStudent = new Student(firstName, lastName, Matrikelnummer);
 
+    // push fügt student in den Array hinzu
     students.push(newStudent);
 
+    // Speicherung in den Local-storage mit einem JSON
     localStorage.setItem('student', JSON.stringify(students));
 
     renderStudentsTable();
 
 }
 
+
 function renderStudentsTable() {
 
-    //delete all students in the table
+    //removed alle table rows die größer als 0 sind. 
     $("table tr:gt(0)").remove();
-
-    //render the students in the table
-
+    //For loop die durch den Array students läuft und alle elemente ausgibt in der Tabelle
     for (let i = 0; i < students.length; i++) {
 
         $("table").append("<tr></tr>");
@@ -43,6 +49,8 @@ function renderStudentsTable() {
     }
 
 }
+
+renderStudentsTable()
 
 $(document).ready(() => {
     if (localStorage.getItem('student') != null) {
