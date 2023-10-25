@@ -9,15 +9,6 @@ class Student {
     }
 }
 
-$(document).ready(() => {
-    if (localStorage.getItem('student') != null) {
-        students = JSON.parse(localStorage.getItem('student'));
-        renderStudentsTable();
-    }
-});
-
-renderStudentsTable()
-
 function createStudent() {
 
     let firstName = $('#InputFirstname').val();
@@ -52,3 +43,10 @@ function renderStudentsTable() {
     }
 
 }
+
+$(document).ready(() => {
+    if (localStorage.getItem('student') != null) {
+        students = JSON.parse(localStorage.getItem('student'));
+        renderStudentsTable();
+    }
+});
