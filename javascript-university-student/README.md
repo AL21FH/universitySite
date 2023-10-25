@@ -1,2 +1,0 @@
-# javascript university student
- 
